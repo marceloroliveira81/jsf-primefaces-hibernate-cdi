@@ -9,6 +9,7 @@ import javax.inject.Named;
 
 import dao.AutorDao;
 import model.Autor;
+import util.ExibeMensagem;
 import util.Transacional;
 
 @Named
@@ -30,9 +31,14 @@ public class AutorController implements Serializable {
 	
 	@Transacional
 	public void salvar() {
-		autorDao.salvar(autor);
-		this.autor = new Autor();
-		this.autores = autorDao.listar();
+		try {
+			autorDao.salvar(autor);
+			this.autor = new Autor();
+			this.autores = autorDao.listar();
+			ExibeMensagem.setMensagemInfo("Autor cadastrado/atualizado com sucesso.");
+		} catch (Exception e) {
+			ExibeMensagem.setMensagemInfo("Erro ao cadastrar/atualizar Autor. Erro: " + e.getMessage());
+		}		
 	}
 	
 	public void prepararAlteracao(Autor autor) {
@@ -41,8 +47,14 @@ public class AutorController implements Serializable {
 	
 	@Transacional
 	public void excluir(Autor autor) {
-		autorDao.deletar(autor);
-		this.autores = autorDao.listar();
+		try {
+			autorDao.deletar(autor);
+			this.autores = autorDao.listar();
+			ExibeMensagem.setMensagemInfo("Autor excluído com sucesso.");
+		} catch (Exception e) {
+			ExibeMensagem.setMensagemInfo("Erro ao excluir Autor. Erro: " + e.getMessage());
+		}
+		
 	}
 
 	public Autor getAutor() {
