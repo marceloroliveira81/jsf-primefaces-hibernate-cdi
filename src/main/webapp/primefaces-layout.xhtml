@@ -6,16 +6,23 @@
       xmlns:p="http://primefaces.org/ui"> 
 
 <h:head>
-	<title>Primefaces - Layout</title>	
+	<title>Primefaces - Layout</title>
+	<style>
+		.ui-layout-unit {
+			border: none;
+		}
+	</style>	
 </h:head> 
 
 <h:body> 
 	<p:layout fullPage="true">
-		<p:layoutUnit position="north" size="100">Header</p:layoutUnit>
-		<p:layoutUnit position="west" size="200">Menu</p:layoutUnit>
-		<p:layoutUnit position="center">Content</p:layoutUnit>
-		<p:layoutUnit position="south" size="50">Footer</p:layoutUnit>
+		<p:layoutUnit position="north" size="100" gutter="0">Header</p:layoutUnit>
 		
+		<p:layoutUnit position="west" size="200" gutter="0">Menu</p:layoutUnit>
+		
+		<p:layoutUnit position="center" gutter="0">Content</p:layoutUnit>
+		
+		<p:layoutUnit position="south" size="50" gutter="0">Footer</p:layoutUnit>		
 	</p:layout>
 </h:body> 
 
