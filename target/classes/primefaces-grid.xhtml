@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<title>Primefaces - Grid</title>
+	<h:outputStylesheet name="grid/grid.css" library="primefaces" />
+	<style>
+.conteudo {
+	background-color: red;
+}
+
+.lateral {
+	background-color: green;
+}
+</style>
+</h:head>
+
+<h:body>
+	<div class="ui-grid ui-grid-responsive">
+
+		<div class="ui-grid-col-4">Coluna 1</div>
+		<div class="ui-grid-col-4">Coluna 2</div>
+		<div class="ui-grid-col-4">Coluna 3</div>
+
+		<div class="ui-grid-col-3">Coluna 1</div>
+		<div class="ui-grid-col-3">Coluna 2</div>
+		<div class="ui-grid-col-3">Coluna 3</div>
+		<div class="ui-grid-col-3">Coluna 4</div>
+
+		<div class="ui-grid-col-6">Coluna 1</div>
+		<div class="ui-grid-col-6">Coluna 2</div>
+
+		<div class="ui-grid-col-8 ui-grid-nopad conteudo">
+			<div class="ui-grid-col-6">Coluna 1</div>
+			<div class="ui-grid-col-6">Coluna 2</div>
+			<div class="ui-grid-col-4">Coluna 1</div>
+			<div class="ui-grid-col-4">Coluna 2</div>
+			<div class="ui-grid-col-4">Coluna 3</div>
+		</div>
+		<div class="ui-grid-col-4 lateral">Lateral</div>
+
+		<div class="ui-g-8 ui-g-nopad lateral">
+			<div class="ui-g-6">6</div>
+			<div class="ui-g-6">6</div>
+			<div class="ui-g-12">12</div>
+		</div>
+		<div class="ui-g-4 conteudo">4</div>
+	</div>
+</h:body>
+
+</html>
