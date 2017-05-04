@@ -55,7 +55,7 @@ public class AutorController implements Serializable {
 			ExibeMensagem.setMensagemInfo("Erro ao excluir Autor. Erro: " + e.getMessage());
 		}
 		
-	}
+	}	
 
 	public Autor getAutor() {
 		return autor;

@@ -7,37 +7,44 @@
 
 <ui:composition template="/template.xhtml">
 	<ui:define name="title">Biblioteca - Autor</ui:define>
-	
+
 	<ui:define name="content">
-		<h2>Autor</h2>
-		<p:separator />
+		<!-- <h2>Autor</h2>
+		<p:separator />  -->
 		<h:form id="frmAutor">
 			<h:inputHidden value="#{autorController.autor.id}" />
 			<p:messages autoUpdate="true" closable="true" />
 			<p:panelGrid columns="2">
+				<f:facet name="header">
+							Autor - Cadastro/Autualização
+						</f:facet>
+
 				<p:outputLabel value="ID: " />
 				<h:outputText value="#{autorController.autor.id}" />
 
-				<p:outputLabel value="Nome: " />
-				<p:inputText value="#{autorController.autor.nome}" />
+				<p:outputLabel value="Nome: " for="nome" />
+				<p:inputText id="nome" value="#{autorController.autor.nome}"
+					size="45" required="true" />
 
 				<h:outputText value="" />
 				<p:commandButton value="Salvar"
-					actionListener="#{autorController.salvar}" update="frmAutor" />
+					actionListener="#{autorController.salvar}" update="frmAutor"
+					icon="ui-icon-disk" iconPos="right" />
 			</p:panelGrid>
 			<p:separator />
 			<p:dataTable id="autores" value="#{autorController.autores}"
-				var="autor" paginator="true" rows="9">
-				<p:column style="width: 10%;text-align: center;">
-					<f:facet name="header">#</f:facet>
-				#{autor.id}
-			</p:column>
-				<p:column>
-					<f:facet name="header">Nome</f:facet>
-				#{autor.nome}
-			</p:column>
-				<p:column style="width: 30%;text-align: center;">
-					<f:facet name="header">Ação</f:facet>
+				var="autor" paginator="true" rows="9" emptyMessage="Não existe nenhum autor com o valor do critério da pesquisa.">
+				<f:facet name="header">Lista de Autores</f:facet>
+
+				<p:column style="width: 10%;text-align: center;" headerText="#" filterBy="#{autor.id}" filterMatchMode="exact">
+					#{autor.id}
+				</p:column>
+
+				<p:column headerText="Nome" filterBy="#{autor.nome}" filterMatchMode="contains">
+					#{autor.nome}
+				</p:column>
+
+				<p:column style="width: 30%;text-align: center;" headerText="Ação">
 					<p:commandButton value="Alterar"
 						actionListener="#{autorController.prepararAlteracao(autor)}"
 						update="frmAutor" />
@@ -55,6 +62,10 @@
 							styleClass="ui-confirmdialog-yes" />
 					</p:confirmDialog>
 				</p:column>
+
+				<f:facet name="footer">
+        			9 registros por página
+        		</f:facet>
 			</p:dataTable>
 		</h:form>
 	</ui:define>
