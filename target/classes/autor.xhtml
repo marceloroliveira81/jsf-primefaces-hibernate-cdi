@@ -33,10 +33,12 @@
 			</p:panelGrid>
 			<p:separator />
 			<p:dataTable id="autores" value="#{autorController.autores}"
-				var="autor" paginator="true" rows="9" emptyMessage="Não existe nenhum autor com o valor do critério da pesquisa.">
+				var="autor" paginator="true" rows="9" 
+				emptyMessage="Não existe nenhum autor com o valor do critério da pesquisa." 
+				reflow="true">
 				<f:facet name="header">Lista de Autores</f:facet>
 
-				<p:column style="width: 10%;text-align: center;" headerText="#" filterBy="#{autor.id}" filterMatchMode="exact">
+				<p:column style="text-align: center;" headerText="#" filterBy="#{autor.id}" filterMatchMode="exact">
 					#{autor.id}
 				</p:column>
 
@@ -44,7 +46,7 @@
 					#{autor.nome}
 				</p:column>
 
-				<p:column style="width: 30%;text-align: center;" headerText="Ação">
+				<p:column style="text-align: center;" headerText="Ação">
 					<p:commandButton value="Alterar"
 						actionListener="#{autorController.prepararAlteracao(autor)}"
 						update="frmAutor" />
@@ -62,10 +64,6 @@
 							styleClass="ui-confirmdialog-yes" />
 					</p:confirmDialog>
 				</p:column>
-
-				<f:facet name="footer">
-        			9 registros por página
-        		</f:facet>
 			</p:dataTable>
 		</h:form>
 	</ui:define>
